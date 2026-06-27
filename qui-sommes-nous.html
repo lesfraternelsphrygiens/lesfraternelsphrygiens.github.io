@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Qui sommes-nous, Les Fraternels Phrygiens</title>
+<meta name="description" content="L'histoire des Fraternels Phrygiens, pourquoi nous existons et ce que nous voulons changer.">
+<meta property="og:title" content="Qui sommes-nous, Les Fraternels Phrygiens">
+<meta property="og:description" content="Un vecteur, pas un dirigeant solitaire. L'histoire des LFP et de leur fondateur Evan Bouffet.">
+<meta property="og:url" content="https://lesfraternelsphrygiens.github.io/qui-sommes-nous">
+<meta property="og:type" content="website">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Source+Serif+4:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bleu: #1a2744;
+    --rouge: #c0392b;
+    --or: #c9a96e;
+    --blanc: #f8f6f1;
+    --gris: #4a4a4a;
+    --clair: #e8e4d9;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Source Serif 4', Georgia, serif;
+    background: var(--blanc);
+    color: var(--bleu);
+  }
+
+  /* HEADER */
+  .header {
+    background: var(--bleu);
+    padding: 2rem;
+    text-align: center;
+    border-bottom: 4px solid var(--rouge);
+  }
+
+  .header a {
+    color: rgba(248,246,241,0.6);
+    text-decoration: none;
+    font-size: 0.85rem;
+    letter-spacing: 0.2em;
+    display: block;
+    margin-bottom: 1.5rem;
+    transition: color 0.2s;
+  }
+
+  .header a:hover { color: var(--or); }
+
+  .header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 900;
+    color: var(--blanc);
+  }
+
+  .header h1 span { color: var(--or); }
+
+  /* HERO CITATION */
+  .hero-citation {
+    background: var(--rouge);
+    padding: 3rem 2rem;
+    text-align: center;
+  }
+
+  .hero-citation blockquote {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+    font-style: italic;
+    color: white;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  /* CONTAINER */
+  .container {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+  }
+
+  /* SECTION POURQUOI */
+  .section {
+    margin-bottom: 4rem;
+  }
+
+  .section-label {
+    font-size: 0.72rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--rouge);
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  .section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
+    font-weight: 700;
+    color: var(--bleu);
+    line-height: 1.2;
+    margin-bottom: 1.75rem;
+  }
+
+  .section h2 span { color: var(--rouge); }
+
+  .section p {
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: var(--gris);
+    margin-bottom: 1.25rem;
+  }
+
+  .section p:last-child { margin-bottom: 0; }
+
+  /* SEPARATEUR OR */
+  .sep {
+    width: 60px;
+    height: 3px;
+    background: var(--or);
+    margin: 3rem 0;
+  }
+
+  /* CARTE FONDATEUR */
+  .fondateur-card {
+    background: var(--bleu);
+    padding: 2.5rem;
+    margin: 3rem 0;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 2rem;
+    align-items: start;
+  }
+
+  @media (max-width: 600px) {
+    .fondateur-card { grid-template-columns: 1fr; }
+  }
+
+  .fondateur-info h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    color: var(--blanc);
+    margin-bottom: 0.5rem;
+  }
+
+  .fondateur-info .titre {
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+    color: var(--or);
+    text-transform: uppercase;
+    line-height: 1.6;
+  }
+
+  .fondateur-texte p {
+    font-size: 0.95rem;
+    line-height: 1.75;
+    color: rgba(248,246,241,0.8);
+    margin-bottom: 0.75rem;
+  }
+
+  .fondateur-texte p:last-child { margin-bottom: 0; }
+
+  /* VALEURS */
+  .valeurs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .valeur-item {
+    border-left: 3px solid var(--or);
+    padding: 1.25rem 1.5rem;
+    background: white;
+  }
+
+  .valeur-item h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: var(--bleu);
+    margin-bottom: 0.6rem;
+  }
+
+  .valeur-item p {
+    font-size: 0.88rem;
+    line-height: 1.65;
+    color: var(--gris);
+    margin: 0;
+  }
+
+  /* CHIFFRES */
+  .chiffres-band {
+    background: var(--bleu);
+    padding: 3rem 2rem;
+    margin: 4rem 0;
+  }
+
+  .chiffres-band h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    color: var(--or);
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .chiffres-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 2rem;
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .chiffre-item .nombre {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8rem;
+    font-weight: 900;
+    color: white;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+
+  .chiffre-item .label {
+    font-size: 0.82rem;
+    color: rgba(248,246,241,0.6);
+    letter-spacing: 0.1em;
+    line-height: 1.4;
+  }
+
+  /* CTA */
+  .cta-band {
+    background: var(--rouge);
+    padding: 3rem 2rem;
+    text-align: center;
+  }
+
+  .cta-band h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.4rem, 3vw, 2rem);
+    color: white;
+    margin-bottom: 1rem;
+  }
+
+  .cta-band p {
+    color: rgba(255,255,255,0.85);
+    margin-bottom: 2rem;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-blanc {
+    background: white;
+    color: var(--rouge);
+    padding: 0.9rem 2rem;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    transition: all 0.2s;
+  }
+
+  .btn-blanc:hover { background: var(--blanc); }
+
+  .btn-outline-blanc {
+    border: 1px solid white;
+    color: white;
+    padding: 0.9rem 2rem;
+    text-decoration: none;
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
+    transition: all 0.2s;
+  }
+
+  .btn-outline-blanc:hover { background: rgba(255,255,255,0.1); }
+
+  footer {
+    background: #0f1a2e;
+    padding: 1.5rem;
+    text-align: center;
+    font-size: 0.8rem;
+    color: rgba(248,246,241,0.4);
+  }
+</style>
+</head>
+<body>
+<nav style="background:#0f1a2e;padding:0.75rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.75rem;">
+  <a href="index.html" style="font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:#c9a96e;text-decoration:none;letter-spacing:0.05em;">LFP</a>
+  <div style="display:flex;gap:0.25rem;flex-wrap:wrap;">
+    <a href="index.html" style="color:rgba(248,246,241,0.7);text-decoration:none;font-size:0.85rem;padding:0.4rem 0.9rem;border:1px solid transparent;transition:all 0.2s;" onmouseover="this.style.borderColor='rgba(201,169,110,0.5)';this.style.color='#c9a96e'" onmouseout="this.style.borderColor='transparent';this.style.color='rgba(248,246,241,0.7)'">Accueil</a>
+    <a href="qui-sommes-nous.html" style="color:rgba(248,246,241,0.7);text-decoration:none;font-size:0.85rem;padding:0.4rem 0.9rem;border:1px solid transparent;transition:all 0.2s;" onmouseover="this.style.borderColor='rgba(201,169,110,0.5)';this.style.color='#c9a96e'" onmouseout="this.style.borderColor='transparent';this.style.color='rgba(248,246,241,0.7)'">Qui sommes-nous</a>
+    <a href="programme-resume.html" style="color:rgba(248,246,241,0.7);text-decoration:none;font-size:0.85rem;padding:0.4rem 0.9rem;border:1px solid transparent;transition:all 0.2s;" onmouseover="this.style.borderColor='rgba(201,169,110,0.5)';this.style.color='#c9a96e'" onmouseout="this.style.borderColor='transparent';this.style.color='rgba(248,246,241,0.7)'">Le programme</a>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfSmssL8abL3g3uirmoHX4OrNekd4l8-WhA9NMdZ-3CcqJ2lg/viewform" target="_blank" style="background:#c0392b;color:white;text-decoration:none;font-size:0.85rem;padding:0.4rem 0.9rem;transition:background 0.2s;" onmouseover="this.style.background='#a93226'" onmouseout="this.style.background='#c0392b'">Nous rejoindre</a>
+  </div>
+</nav>
+
+<!-- COMPTEUR ÂGE ASSOCIATION -->
+<div id="age-asso" style="text-align:center;padding:0.6rem 2rem;background:#1a2744;font-size:0.82rem;color:rgba(248,246,241,0.6);border-bottom:1px solid rgba(255,255,255,0.05);">
+  Association fondée le 7 juin 2025 &bull; <span id="age-texte">chargement...</span>
+</div>
+<script>
+(function() {
+  var creation = new Date('2025-06-07');
+  var maintenant = new Date();
+  var annees = maintenant.getFullYear() - creation.getFullYear();
+  var mois = maintenant.getMonth() - creation.getMonth();
+  if (mois < 0 || (mois === 0 && maintenant.getDate() < creation.getDate())) {
+    annees--;
+    mois += 12;
+  }
+  var texte = annees > 0 ? annees + ' an' + (annees > 1 ? 's' : '') : '';
+  if (mois > 0) texte += (texte ? ' et ' : '') + mois + ' mois';
+  var el = document.getElementById('age-texte');
+  if (el) el.textContent = texte + " d'existence";
+})();
+</script>
+
+<header class="header">
+  <a href="index.html">← Retour à l'accueil</a>
+  <h1>Qui sommes-<span>nous</span></h1>
+</header>
+
+<div class="hero-citation">
+  <blockquote>
+    "Ce projet substituera le 'je' par le 'nous'. Je suis davantage un vecteur qu'un dirigeant solitaire."
+  </blockquote>
+</div>
+
+<main class="container">
+
+  <!-- POURQUOI -->
+  <section class="section">
+    <p class="section-label">L'origine</p>
+    <h2>Pourquoi les <span>Fraternels Phrygiens</span> existent</h2>
+    <p>Depuis des années, on observe un enlisement politique. Les offres programmatiques se ressemblent, quel que soit leur positionnement sur l'échiquier. Les figures qui les incarnent ne se renouvellent pas. Et quand cela arrive, chaque nouveau dirigeant s'assure d'une forme de continuité qui, à terme, écrase les identités et alimente le gouffre entre représentants et citoyens.</p>
+    <p>Ce qui a convaincu Evan Bouffet de créer les LFP, c'est l'instrumentalisation des médias et des politiques qui ont oublié que leur rôle n'est pas de se faire élire pour protéger leurs intérêts une fois en place. Le rôle d'un élu, c'est d'harmoniser une situation, de braver les difficultés, de s'y adapter et de les surpasser, ensemble. Voilà ce qu'une véritable représentation devrait signifier.</p>
+    <p>Les Fraternels Phrygiens ne sont pas un parti de plus. C'est une tentative sérieuse de remettre la cohérence au cœur du débat politique, avec un programme chiffré, sourcé, et construit pour durer.</p>
+  </section>
+
+  <div class="sep"></div>
+
+  <!-- FONDATEUR -->
+  <section class="section">
+    <p class="section-label">Le fondateur</p>
+    <h2>Evan Bouffet</h2>
+
+    <div class="fondateur-card">
+      <div class="fondateur-info">
+        <h3>Evan Bouffet</h3>
+        <p class="titre">
+          Président des LFP<br>
+          Conseiller municipal<br>
+          La Devise, Charente-Maritime<br>
+          Étudiant en L2 Sciences Politiques<br>
+          UCO Niort, parcours APCP
+        </p>
+      </div>
+      <div class="fondateur-texte">
+        <p>Evan Bouffet a fondé les Fraternels Phrygiens le 7 juin 2025, à 19 ans. Non par ambition personnelle, mais par conviction que quelque chose manquait dans le paysage politique français, une offre cohérente, honnête, et construite pour le long terme. Il rejoindra ensuite le conseil municipal de La Devise le 15 mars 2026, à 20 ans, renforçant son engagement de terrain aux côtés de son engagement associatif.</p>
+        <p>Il n'a pas de mentor politique, pas de parti derrière lui, pas de réseau établi. Il a un programme de 11 volets qu'il a construit méthodiquement, volet par volet, avec la conviction que la politique sérieuse commence par le travail sérieux.</p>
+        <p>Ce qu'il veut que l'on retienne de lui, ce n'est pas une personnalité de plus dans le monde politique. C'est un vecteur. Quelqu'un qui ouvre un espace, y invite d'autres, et s'efface progressivement derrière le collectif.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="sep"></div>
+
+  <!-- VALEURS -->
+  <section class="section">
+    <p class="section-label">Ce qui nous guide</p>
+    <h2>Nos <span>valeurs</span> fondatrices</h2>
+    <div class="valeurs-grid">
+      <div class="valeur-item">
+        <h4>La cohérence</h4>
+        <p>Nous ne promettons pas la gratuité. Nous promettons que chaque mesure s'articule avec les autres et que le tout tient financièrement.</p>
+      </div>
+      <div class="valeur-item">
+        <h4>La redevabilité</h4>
+        <p>Nous écrivons aujourd'hui ce que nous ferons demain pour que vous puissiez nous juger après. Un élu se juge sur ce qu'il fait, pas sur ce qu'il dit.</p>
+      </div>
+      <div class="valeur-item">
+        <h4>Le rassemblement</h4>
+        <p>La fraternité ce n'est pas l'union des semblables, c'est l'union des différents. Car dans les ténèbres de la division, Marianne nous rassemble.</p>
+      </div>
+      <div class="valeur-item">
+        <h4>Le collectif</h4>
+        <p>Ce projet n'appartient pas à son fondateur. Il appartient à ceux qui le portent. Le "je" deviendra "nous", c'est l'objectif, pas la promesse.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- CHIFFRES -->
+<div class="chiffres-band">
+  <h3>Les LFP en chiffres</h3>
+  <div class="chiffres-grid">
+    <div class="chiffre-item">
+      <p class="nombre">11</p>
+      <p class="label">volets programmatiques chiffrés et sourcés</p>
+    </div>
+    <div class="chiffre-item">
+      <p class="nombre">1</p>
+      <p class="label">an d'existence depuis juin 2025</p>
+    </div>
+    <div class="chiffre-item">
+      <p class="nombre">19</p>
+      <p class="label">ans, l'âge du fondateur à la création de l'association</p>
+    </div>
+    <div class="chiffre-item">
+      <p class="nombre">W17</p>
+      <p class="label">association déclarée en préfecture de Charente-Maritime</p>
+    </div>
+  </div>
+</div>
+
+<div class="cta-band">
+  <h2>Vous partagez cette vision ?</h2>
+  <p>Les LFP cherchent des citoyens prêts à substituer le "je" par le "nous".</p>
+  <div class="cta-buttons">
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfSmssL8abL3g3uirmoHX4OrNekd4l8-WhA9NMdZ-3CcqJ2lg/viewform" target="_blank" class="btn-blanc">Rejoindre l'association</a>
+    <a href="programme-resume.html" class="btn-outline-blanc">Lire le programme</a>
+  </div>
+</div>
+
+<footer>
+  Les Fraternels Phrygiens &bull; Association politique loi 1901 &bull; La Devise, Charente-Maritime
+</footer>
+
+</body>
+</html>
