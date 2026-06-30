@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Programme résumé, Les Fraternels Phrygiens</title>
+<meta name="description" content="Le programme des Fraternels Phrygiens en 11 volets. Chiffré, sourcé, cohérent. Accessible à tous.">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Source+Serif+4:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bleu: #1a2744;
+    --rouge: #c0392b;
+    --or: #c9a96e;
+    --blanc: #f8f6f1;
+    --gris: #4a4a4a;
+    --clair: #e8e4d9;
+    --bleu-clair: #2e4a7a;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Source Serif 4', Georgia, serif;
+    background: var(--blanc);
+    color: var(--bleu);
+  }
+
+  /* HEADER */
+  .header {
+    background: var(--bleu);
+    padding: 2rem;
+    text-align: center;
+    border-bottom: 4px solid var(--rouge);
+  }
+
+  .header-inner {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .header a {
+    color: rgba(248,246,241,0.6);
+    text-decoration: none;
+    font-size: 0.85rem;
+    letter-spacing: 0.2em;
+    display: block;
+    margin-bottom: 1.5rem;
+    transition: color 0.2s;
+  }
+
+  .header a:hover { color: var(--or); }
+
+  .header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 900;
+    color: var(--blanc);
+    margin-bottom: 0.5rem;
+  }
+
+  .header h1 span { color: var(--or); }
+
+  .header p {
+    color: rgba(248,246,241,0.7);
+    font-size: 1rem;
+    font-style: italic;
+    margin-top: 0.75rem;
+  }
+
+  /* INTRO BAND */
+  .intro {
+    background: var(--rouge);
+    padding: 1.25rem 2rem;
+    text-align: center;
+  }
+
+  .intro p {
+    color: white;
+    font-size: 0.95rem;
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  .intro strong { font-weight: 600; }
+
+  /* NAV VOLETS */
+  .nav-volets {
+    background: white;
+    border-bottom: 1px solid var(--clair);
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    overflow-x: auto;
+  }
+
+  .nav-volets ul {
+    display: flex;
+    gap: 0.5rem;
+    list-style: none;
+    max-width: 1100px;
+    margin: 0 auto;
+    flex-wrap: nowrap;
+  }
+
+  .nav-volets a {
+    color: var(--gris);
+    text-decoration: none;
+    font-size: 0.78rem;
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+    padding: 0.4rem 0.8rem;
+    border: 1px solid var(--clair);
+    transition: all 0.2s;
+  }
+
+  .nav-volets a:hover {
+    background: var(--bleu);
+    color: white;
+    border-color: var(--bleu);
+  }
+
+  /* MAIN CONTENT */
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+  }
+
+  /* VOLET CARD */
+  .volet {
+    margin-bottom: 4rem;
+    scroll-margin-top: 80px;
+  }
+
+  .volet-header {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1.5rem;
+    align-items: start;
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 2px solid var(--rouge);
+  }
+
+  .volet-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    font-weight: 900;
+    color: var(--rouge);
+    line-height: 1;
+    opacity: 0.25;
+    min-width: 80px;
+    text-align: right;
+  }
+
+  .volet-title-block h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.4rem, 3vw, 2rem);
+    font-weight: 700;
+    color: var(--bleu);
+    margin-bottom: 0.25rem;
+  }
+
+  .volet-tag {
+    display: inline-block;
+    background: var(--bleu);
+    color: white;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    padding: 0.2rem 0.6rem;
+    text-transform: uppercase;
+  }
+
+  /* THREE COLUMNS */
+  .volet-body {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr 1fr;
+    gap: 2rem;
+  }
+
+  @media (max-width: 768px) {
+    .volet-body { grid-template-columns: 1fr; }
+    .volet-number { font-size: 2.5rem; min-width: 50px; }
+    .container { padding: 2rem 1.25rem; }
+    .header { padding: 1.5rem 1.25rem; }
+    .intro { padding: 1rem 1.25rem; }
+    .intro p { font-size: 0.85rem; }
+    .nav-volets { padding: 0.75rem 1rem; gap: 0.4rem; }
+    .nav-volets a { font-size: 0.7rem; padding: 0.3rem 0.6rem; }
+    .volet-header { gap: 1rem; }
+    .cta-band { padding: 3rem 1.25rem; }
+    .cta-buttons { flex-direction: column; align-items: stretch; }
+    nav[style*="background:#0f1a2e"] { padding: 0.6rem 1rem !important; }
+    nav[style*="background:#0f1a2e"] a { font-size: 0.78rem !important; padding: 0.35rem 0.6rem !important; }
+    #nav-flottant { bottom: 16px; right: 16px; }
+    #btn-nav-flottant { width: 50px; height: 50px; }
+  }
+
+  @media (max-width: 400px) {
+    .chiffre-grand { font-size: 1.8rem !important; }
+  }
+
+  .volet-block h3 {
+    font-family: 'Source Serif 4', serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--rouge);
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--clair);
+  }
+
+  .volet-block p {
+    font-size: 0.92rem;
+    line-height: 1.75;
+    color: var(--gris);
+  }
+
+  .mesures-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .mesures-list li {
+    font-size: 0.92rem;
+    line-height: 1.6;
+    color: var(--gris);
+    padding-left: 1.2rem;
+    position: relative;
+  }
+
+  .mesures-list li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--rouge);
+    font-size: 0.85rem;
+  }
+
+  .chiffre-block {
+    background: var(--bleu);
+    padding: 1.5rem;
+  }
+
+  .chiffre-block h3 {
+    border-bottom-color: rgba(255,255,255,0.15);
+    color: var(--or) !important;
+  }
+
+  .chiffre-block p {
+    color: rgba(248,246,241,0.85);
+    font-size: 0.9rem;
+  }
+
+  .chiffre-grand {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: white;
+    line-height: 1;
+    margin: 0.75rem 0 0.5rem;
+  }
+
+  /* DIVIDER */
+  .volet-divider {
+    width: 60px;
+    height: 3px;
+    background: var(--or);
+    margin: 0 auto 4rem;
+  }
+
+  /* CTA BOTTOM */
+  .cta-band {
+    background: var(--bleu);
+    padding: 4rem 2rem;
+    text-align: center;
+    border-top: 4px solid var(--rouge);
+  }
+
+  .cta-band h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+    color: var(--blanc);
+    margin-bottom: 1rem;
+  }
+
+  .cta-band p {
+    color: rgba(248,246,241,0.7);
+    margin-bottom: 2rem;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-rouge {
+    background: var(--rouge);
+    color: white;
+    padding: 0.9rem 2rem;
+    text-decoration: none;
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
+    transition: background 0.2s;
+  }
+
+  .btn-rouge:hover { background: #a93226; }
+
+  .btn-outline {
+    border: 1px solid var(--or);
+    color: var(--or);
+    padding: 0.9rem 2rem;
+    text-decoration: none;
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
+    transition: all 0.2s;
+  }
+
+  .btn-outline:hover { background: rgba(201,169,110,0.1); }
+
+  footer {
+    background: #0f1a2e;
+    padding: 1.5rem;
+    text-align: center;
+    font-size: 0.8rem;
+    color: rgba(248,246,241,0.4);
+  }
+</style>
+</head>
+<body>
+<nav style="background:#0f1a2e;padding:0.75rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.75rem;">
+  <a href="index.html" style="font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:#c9a96e;text-decoration:none;letter-spacing:0.05em;">LFP</a>
+  <div style="display:flex;gap:0.25rem;flex-wrap:wrap;">
+    <a href="index.html" style="color:rgba(248,246,241,0.7);text-decoration:none;font-size:0.85rem;padding:0.4rem 0.9rem;border:1px solid transparent;transition:all 0.2s;" onmouseover="this.style.borderColor='rgba(201,169,110,0.5)';this.style.color='#c9a96e'" onmouseout="this.style.borderColor='transparent';this.style.color='rgba(248,246,241,0.7)'">Accueil</a>
+    <a href="qui-sommes-nous.html" style="color:rgba(248,246,241,0.7);text-decoration:none;font-size:0.85rem;padding:0.4rem 0.9rem;border:1px solid transparent;transition:all 0.2s;" onmouseover="this.style.borderColor='rgba(201,169,110,0.5)';this.style.color='#c9a96e'" onmouseout="this.style.borderColor='transparent';this.style.color='rgba(248,246,241,0.7)'">Qui sommes-nous</a>
+    <a href="programme-resume.html" style="color:rgba(248,246,241,0.7);text-decoration:none;font-size:0.85rem;padding:0.4rem 0.9rem;border:1px solid transparent;transition:all 0.2s;" onmouseover="this.style.borderColor='rgba(201,169,110,0.5)';this.style.color='#c9a96e'" onmouseout="this.style.borderColor='transparent';this.style.color='rgba(248,246,241,0.7)'">Le programme</a>
+    <a href="actualites.html" style="color:rgba(248,246,241,0.7);text-decoration:none;font-size:0.85rem;padding:0.4rem 0.9rem;border:1px solid transparent;transition:all 0.2s;" onmouseover="this.style.borderColor='rgba(201,169,110,0.5)';this.style.color='#c9a96e'" onmouseout="this.style.borderColor='transparent';this.style.color='rgba(248,246,241,0.7)'">Actualités</a>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfSmssL8abL3g3uirmoHX4OrNekd4l8-WhA9NMdZ-3CcqJ2lg/viewform" target="_blank" style="background:#c0392b;color:white;text-decoration:none;font-size:0.85rem;padding:0.4rem 0.9rem;transition:background 0.2s;" onmouseover="this.style.background='#a93226'" onmouseout="this.style.background='#c0392b'">Nous rejoindre</a>
+  </div>
+</nav>
+
+<!-- COMPTEUR ÂGE ASSOCIATION -->
+<div id="age-asso" style="text-align:center;padding:0.6rem 2rem;background:#1a2744;font-size:0.82rem;color:rgba(248,246,241,0.6);border-bottom:1px solid rgba(255,255,255,0.05);">
+  Association fondée le 7 juin 2025 &bull; <span id="age-texte">chargement...</span>
+</div>
+<script>
+(function() {
+  var creation = new Date('2025-06-07');
+  var maintenant = new Date();
+  var annees = maintenant.getFullYear() - creation.getFullYear();
+  var mois = maintenant.getMonth() - creation.getMonth();
+  if (mois < 0 || (mois === 0 && maintenant.getDate() < creation.getDate())) {
+    annees--;
+    mois += 12;
+  }
+  var texte = annees > 0 ? annees + ' an' + (annees > 1 ? 's' : '') : '';
+  if (mois > 0) texte += (texte ? ' et ' : '') + mois + ' mois';
+  var el = document.getElementById('age-texte');
+  if (el) el.textContent = texte + " d'existence";
+})();
+</script>
+
+<header class="header">
+  <div class="header-inner">
+    <a href="index.html">← Retour à l'accueil</a>
+    <h1>Le programme <span>en clair</span></h1>
+    <p>11 volets, ce que nous proposons, pourquoi, et ce que ça change concrètement</p>
+  </div>
+</header>
+
+<div class="intro">
+  <p>Le programme complet des LFP fait plusieurs centaines de pages. Cette page en présente l'essentiel : <strong>un constat, des mesures, un résultat concret</strong>, pour chacun des 11 volets. Les documents complets restent disponibles en téléchargement.</p>
+</div>
+
+<nav class="nav-volets">
+  <ul>
+    <li><a href="#philosophie">Philosophie</a></li>
+    <li><a href="#economie">Économie</a></li>
+    <li><a href="#education">Éducation</a></li>
+    <li><a href="#sante">Santé</a></li>
+    <li><a href="#famille">Famille</a></li>
+    <li><a href="#institutions">Institutions</a></li>
+    <li><a href="#immigration">Immigration</a></li>
+    <li><a href="#defense">Défense</a></li>
+    <li><a href="#ecologie">Écologie</a></li>
+    <li><a href="#international">International</a></li>
+    <li><a href="#drom-com">DROM-COM</a></li>
+  </ul>
+</nav>
+
+<main class="container">
+
+  <!-- 01 PHILOSOPHIE -->
+  <section class="volet" id="philosophie">
+    <div class="volet-header">
+      <div class="volet-number">01</div>
+      <div class="volet-title-block">
+        <span class="volet-tag">Fondements</span>
+        <h2>Philosophie</h2>
+      </div>
+    </div>
+    <div class="volet-body">
+      <div class="volet-block">
+        <h3>Le constat</h3>
+        <p>Le débat politique français est enfermé dans des cases idéologiques qui ne correspondent plus à la réalité des gens. La gauche a abandonné certaines questions légitimes. La droite a récupéré des sujets qui n'étaient pas les siens. Le centre ne recentre jamais rien.</p>
+      </div>
+      <div class="volet-block">
+        <h3>Notre positionnement</h3>
+        <ul class="mesures-list">
+          <li>Un gaullisme économique de gauche, la méthode de Colbert, l'âme de Jaurès, la mécanique de Saint-Simon</li>
+          <li>Refus des cases idéologiques, la sécurité, la famille, le mérite ne sont pas des propriétés de la droite</li>
+          <li>Redevabilité comme norme, un élu se juge sur ce qu'il fait, pas sur ce qu'il promet</li>
+          <li>Inégalités traitées comme condition structurelle, pas comme accident</li>
+          <li>Transition écologique assumée sans décroissance, une asymptote, pas une rupture</li>
+        </ul>
+      </div>
+      <div class="volet-block chiffre-block">
+        <h3>La formule fondatrice</h3>
+        <p>Ce qui nous distingue en une phrase :</p>
+        <p class="chiffre-grand" style="font-size:1.3rem;margin-top:1rem;">"Nous ne promettons pas la gratuité. Nous promettons la cohérence."</p>
+      </div>
+    </div>
+  </section>
+  <div class="volet-divider"></div>
+
+  <!-- 02 ÉCONOMIE -->
+  <section class="volet" id="economie">
+    <div class="volet-header">
+      <div class="volet-number">02</div>
+      <div class="volet-title-block">
+        <span class="volet-tag">Finances publiques</span>
+        <h2>Économie</h2>
+      </div>
+    </div>
+    <div class="volet-body">
+      <div class="volet-block">
+        <h3>Le constat</h3>
+        <p>Un salarié à 2 000€ nets coûte 3 650€ à son employeur. Les PME représentent deux tiers de l'emploi français mais paient un taux d'impôt sur les sociétés effectif plus élevé que les multinationales. Les éleveurs bovins gagnent en moyenne 1 683€ par mois, contre 4 675€ pour les céréaliers. (Source : INSEE, DGFiP, INRAE 2024)</p>
+      </div>
+      <div class="volet-block">
+        <h3>Ce que nous proposons</h3>
+        <ul class="mesures-list">
+          <li>Suppression de la cotisation maladie patronale, 100% reversé au salarié, santé financée par l'impôt</li>
+          <li>IS inversé : 15% pour les microentreprises, 27% pour les grandes entreprises</li>
+          <li>ISF rénové sur le patrimoine passif, recettes fléchées 100% vers les hôpitaux</li>
+          <li>Nationalisations ciblées, EDF, autoroutes, raffineries</li>
+          <li>Système mutualisé agricole, plancher de 4 675€/mois pour toutes les filières fragiles</li>
+          <li>Retraite à 60 ans avec 40 annuités</li>
+        </ul>
+      </div>
+      <div class="volet-block chiffre-block">
+        <h3>Ce que ça change</h3>
+        <p>Un salarié à 2 000€ nets passe à</p>
+        <p class="chiffre-grand">2 550€</p>
+        <p>sans que son employeur dépense un centime de plus. Bilan financier : 62 à 74 Mds€ de recettes pour 59 à 69 Mds€ de dépenses. Surplus affecté au remboursement de la dette.</p>
+      </div>
+    </div>
+  </section>
+  <div class="volet-divider"></div>
+
+  <!-- 03 ÉDUCATION -->
+  <section class="volet" id="education">
+    <div class="volet-header">
+      <div class="volet-number">03</div>
+      <div class="volet-title-block">
+        <span class="volet-tag">Avenir</span>
+        <h2>Éducation</h2>
+      </div>
+    </div>
+    <div class="volet-body">
+      <div class="volet-block">
+        <h3>Le constat</h3>
+        <p>Les enseignants français sont parmi les moins bien payés d'Europe occidentale à niveau de qualification égal. 30% des bâtiments scolaires contiennent de l'amiante. Le redoublement coûte 2 milliards d'euros par an sans preuve d'efficacité. (Source : OCDE, Ministère de l'Éducation 2024)</p>
+      </div>
+      <div class="volet-block">
+        <h3>Ce que nous proposons</h3>
+        <ul class="mesures-list">
+          <li>Revalorisation des enseignants de 26% net, salaire d'entrée aligné sur la médiane européenne</li>
+          <li>Plan de désamiantage et rénovation des bâtiments scolaires sur 10 ans</li>
+          <li>Suppression du redoublement, remplacement par un accompagnement individualisé</li>
+          <li>Dispositif GAUS, détection précoce des difficultés et orientation vers les aides existantes</li>
+          <li>Ateliers lecture et écriture l'après-midi dans les zones à fort illettrisme, financés par le Pass Culture</li>
+          <li>Formation obligatoire à la pédocriminalité pour tous les personnels de l'Éducation nationale</li>
+        </ul>
+      </div>
+      <div class="volet-block chiffre-block">
+        <h3>Ce que ça change</h3>
+        <p>Économie sur la suppression du redoublement :</p>
+        <p class="chiffre-grand">~1 Md€/an</p>
+        <p>réinvestis dans l'accompagnement individualisé. Un enseignant débutant passe de 2 100€ à 2 650€ nets dès la première année.</p>
+      </div>
+    </div>
+  </section>
+  <div class="volet-divider"></div>
+
+  <!-- 04 SANTÉ -->
+  <section class="volet" id="sante">
+    <div class="volet-header">
+      <div class="volet-number">04</div>
+      <div class="volet-title-block">
+        <span class="volet-tag">Bien-être</span>
+        <h2>Santé</h2>
+      </div>
+    </div>
+    <div class="volet-body">
+      <div class="volet-block">
+        <h3>Le constat</h3>
+        <p>6 millions de Français vivent dans des déserts médicaux. Les urgences hospitalières ferment des lits faute de personnel. Un infirmier en France gagne 30% de moins que la moyenne européenne. La santé mentale est le parent pauvre du système de soin. (Source : DREES, OMS 2024)</p>
+      </div>
+      <div class="volet-block">
+        <h3>Ce que nous proposons</h3>
+        <ul class="mesures-list">
+          <li>Financement de la santé par l'impôt, modèle Beveridgien, base fiscale plus large et plus juste</li>
+          <li>ISF rénové fléché 100% vers les hôpitaux publics</li>
+          <li>Revalorisation des soignants à 1 800–2 000€ nets minimum</li>
+          <li>Plan déserts médicaux : installation définitive avec aides bonifiées sur 5 ans, et médecins itinérants rémunérés par l'État pour couvrir les zones les plus isolées</li>
+          <li>2 séances de suivi psychologique remboursées par semestre</li>
+          <li>Dépistages obligatoires et gratuits pour les pathologies les plus fréquentes</li>
+        </ul>
+      </div>
+      <div class="volet-block chiffre-block">
+        <h3>Ce que ça change</h3>
+        <p>Recettes ISF fléchées hôpitaux :</p>
+        <p class="chiffre-grand">6–10 Mds€</p>
+        <p>par an, exclusivement affectés au matériel médical, à la formation des soignants et à la rénovation des bâtiments hospitaliers.</p>
+      </div>
+    </div>
+  </section>
+  <div class="volet-divider"></div>
+
+  <!-- 05 FAMILLE -->
+  <section class="volet" id="famille">
+    <div class="volet-header">
+      <div class="volet-number">05</div>
+      <div class="volet-title-block">
+        <span class="volet-tag">Solidarité</span>
+        <h2>Famille</h2>
+      </div>
+    </div>
+    <div class="volet-body">
+      <div class="volet-block">
+        <h3>Le constat</h3>
+        <p>Les jeunes majeurs quittent l'Aide Sociale à l'Enfance à 18 ans sans filet de sécurité, 30% se retrouvent sans logement dans l'année. L'obligation alimentaire contraint juridiquement des victimes d'abus à financer leur agresseur. Le taux de fécondité est à 1,62 enfant par femme. (Source : INSEE, Observatoire national de la protection de l'enfance 2024)</p>
+      </div>
+      <div class="volet-block">
+        <h3>Ce que nous proposons</h3>
+        <ul class="mesures-list">
+          <li>ASE réformée, accompagnement jusqu'à 28 ans, centres organisés par tranches d'âge</li>
+          <li>Suppression de l'obligation alimentaire pour les enfants victimes d'abus prouvés</li>
+          <li>Parent au foyer rémunéré au SMIC, travail invisible reconnu</li>
+          <li>Prime de naissance renforcée pour le troisième enfant</li>
+          <li>GPA légalisée et encadrée, non remboursée par la Sécurité sociale</li>
+          <li>Protection constitutionnelle de la famille dans le Préambule de 1946</li>
+        </ul>
+      </div>
+      <div class="volet-block chiffre-block">
+        <h3>Ce que ça change</h3>
+        <p>Jeunes en ASE sans solution à 18 ans :</p>
+        <div style="display:flex;align-items:center;gap:1rem;margin:0.75rem 0;">
+          <p class="chiffre-grand" style="margin:0;">0</p>
+          <p style="font-size:0.95rem;color:white;line-height:1.5;margin:0;">jeune<br>à la rue</p>
+        </div>
+        <p>La "falaise des 18 ans" est supprimée. L'accompagnement se poursuit jusqu'à l'autonomie réelle, pas jusqu'à l'âge légal.</p>
+      </div>
+    </div>
+  </section>
+  <div class="volet-divider"></div>
+
+  <!-- 06 INSTITUTIONS -->
+  <section class="volet" id="institutions">
+    <div class="volet-header">
+      <div class="volet-number">06</div>
+      <div class="volet-title-block">
+        <span class="volet-tag">Démocratie</span>
+        <h2>Institutions</h2>
+      </div>
+    </div>
+    <div class="volet-body">
+      <div class="volet-block">
+        <h3>Le constat</h3>
+        <p>L'âge moyen des sénateurs français est de 62 ans. La parité gouvernementale n'est garantie par aucune loi. Un parlementaire ne peut pas être révoqué par ses électeurs en cours de mandat. Les dépenses publiques ne font l'objet d'aucun contrôle citoyen indépendant.</p>
+      </div>
+      <div class="volet-block">
+        <h3>Ce que nous proposons</h3>
+        <ul class="mesures-list">
+          <li>Limite d'âge à 59 ans pour toutes les fonctions électives</li>
+          <li>Parité gouvernementale obligatoire inscrite dans la loi organique</li>
+          <li>Référendum d'initiative citoyenne, le peuple peut proposer, modifier ou abroger une loi</li>
+          <li>Suppression des départements sur 5 ans, compétences absorbées par les régions</li>
+          <li>Tribune des comptes pour la société et la République, organe de contrôle citoyen composé de magistrats, de civils tirés au sort et de représentants associatifs</li>
+          <li>10 ministères maximum dans tout gouvernement</li>
+        </ul>
+      </div>
+      <div class="volet-block chiffre-block">
+        <h3>Ce que ça change</h3>
+        <p>Économie sur la suppression des doublons département/région :</p>
+        <p class="chiffre-grand">~6 Mds€</p>
+        <p>par an progressivement récupérés et réinvestis dans les services publics de proximité.</p>
+      </div>
+    </div>
+  </section>
+  <div class="volet-divider"></div>
+
+  <!-- 07 IMMIGRATION -->
+  <section class="volet" id="immigration">
+    <div class="volet-header">
+      <div class="volet-number">07</div>
+      <div class="volet-title-block">
+        <span class="volet-tag">Diplomatie</span>
+        <h2>Immigration</h2>
+      </div>
+    </div>
+    <div class="volet-body">
+      <div class="volet-block">
+        <h3>Le constat</h3>
+        <p>La politique migratoire française oscille entre laxisme apparent et fermeté rhétorique, sans résultat tangible ni sur l'intégration ni sur les flux. L'accord de 1968 avec l'Algérie n'a pas été mis à jour depuis sa signature. Les reconduites à la frontière ont un taux d'exécution inférieur à 20%. (Source : Cour des Comptes 2023)</p>
+      </div>
+      <div class="volet-block">
+        <h3>Ce que nous proposons</h3>
+        <ul class="mesures-list">
+          <li>Quotas annuels par métier définis par le DARES sur la base des besoins réels du marché du travail</li>
+          <li>Modernisation de l'accord de 1968 avec l'Algérie, réciprocité et conditions de séjour actualisées</li>
+          <li>Levier énergétique dans les négociations avec l'Algérie, coopération migratoire conditionnée</li>
+          <li>Deux statuts distincts pour l'OQTF selon la dangerosité, procédures adaptées</li>
+          <li>Contrat trilatéral France-Chine-Afrique, développement économique africain comme réponse structurelle à la migration</li>
+        </ul>
+      </div>
+      <div class="volet-block chiffre-block">
+        <h3>Ce que ça change</h3>
+        <p>La migration économique non choisie représente un coût estimé de</p>
+        <p class="chiffre-grand">~4 Mds€</p>
+        <p>par an en services sociaux non anticipés. Des quotas basés sur les besoins réels transforment la migration en atout économique planifié.</p>
+      </div>
+    </div>
+  </section>
+  <div class="volet-divider"></div>
+
+  <!-- 08 DÉFENSE -->
+  <section class="volet" id="defense">
+    <div class="volet-header">
+      <div class="volet-number">08</div>
+      <div class="volet-title-block">
+        <span class="volet-tag">Sécurité</span>
+        <h2>Défense et sécurité</h2>
+      </div>
+    </div>
+    <div class="volet-body">
+      <div class="volet-block">
+        <h3>Le constat</h3>
+        <p>Un gardien de la paix débutant gagne 1 900€ nets. La police de proximité a été démantelée en 2003 sans jamais être reconstituée. L'IGPN et l'IGGN sont rattachées aux ministères qu'elles sont censées contrôler. Le budget R&D de la défense est inférieur à celui de nos partenaires britanniques et allemands.</p>
+      </div>
+      <div class="volet-block">
+        <h3>Ce que nous proposons</h3>
+        <ul class="mesures-list">
+          <li>Revalorisation salariale, gardien à 2 800€, officier à 3 100€, gendarme lieutenant à 3 200€ nets</li>
+          <li>Rétablissement de la police de proximité, îlotiers minimum 3 ans dans le même secteur</li>
+          <li>IGPN et IGGN rattachées au ministère de la Justice, composition mixte magistrats, civils, victimes</li>
+          <li>Budget défense à 2% du PIB, dont +30% affecté à la R&D</li>
+          <li>Accélération du programme SYDERAL et R&D sur le dôme énergétique</li>
+          <li>Service national volontaire de 3 à 6 mois rémunéré 900€/mois</li>
+        </ul>
+      </div>
+      <div class="volet-block chiffre-block">
+        <h3>Ce que ça change</h3>
+        <p>Budget police de proximité rétablie :</p>
+        <p class="chiffre-grand">574 M€</p>
+        <p>par an pour 2 000 îlotiers supplémentaires dans les zones prioritaires. Une présence humaine constante dans les quartiers, pas des interventions ponctuelles.</p>
+      </div>
+    </div>
+  </section>
+  <div class="volet-divider"></div>
+
+  <!-- 09 ÉCOLOGIE -->
+  <section class="volet" id="ecologie">
+    <div class="volet-header">
+      <div class="volet-number">09</div>
+      <div class="volet-title-block">
+        <span class="volet-tag">Environnement</span>
+        <h2>Écologie</h2>
+      </div>
+    </div>
+    <div class="volet-body">
+      <div class="volet-block">
+        <h3>Le constat</h3>
+        <p>La France a perdu 30% de ses populations d'oiseaux des champs en 30 ans. Les éoliennes et panneaux solaires sont financés par les contribuables français mais leur production est exportée à l'étranger. 80% des bas-côtés de routes sont entretenus avec des graminées sans valeur pour les pollinisateurs. (Source : MNHN, RTE 2024)</p>
+      </div>
+      <div class="volet-block">
+        <h3>Ce que nous proposons</h3>
+        <ul class="mesures-list">
+          <li>Arrêt des exportations d'électricité verte, la production française reste en France</li>
+          <li>Jachère dynamique LFP, reboisement avec des espèces adaptées à la sécheresse</li>
+          <li>Programme METSO adapté, rachat volontaire de terres pour la biodiversité</li>
+          <li>Protection marine 30% de la ZEE française d'ici 2030</li>
+          <li>Fin des graminées sur les bas-côtés, remplacement par des prairies fleuries d'espèces endémiques</li>
+          <li>Fin de la gestation en cage pour les élevages, bien-être animal renforcé</li>
+        </ul>
+      </div>
+      <div class="volet-block chiffre-block">
+        <h3>Ce que ça change</h3>
+        <p>Arrêt des exportations d'électricité verte :</p>
+        <p class="chiffre-grand">Tarifs 2009</p>
+        <p>rétablis pour tous les Français. Ce que vous avez financé avec vos impôts vous revient sous forme de facture réduite, pas sous forme de bénéfice pour un pays voisin.</p>
+      </div>
+    </div>
+  </section>
+  <div class="volet-divider"></div>
+
+  <!-- 10 INTERNATIONAL -->
+  <section class="volet" id="international">
+    <div class="volet-header">
+      <div class="volet-number">10</div>
+      <div class="volet-title-block">
+        <span class="volet-tag">Souveraineté</span>
+        <h2>International</h2>
+      </div>
+    </div>
+    <div class="volet-body">
+      <div class="volet-block">
+        <h3>Le constat</h3>
+        <p>4 milliardaires contrôlent la majorité de l'audience des chaînes d'information françaises. La France n'a pas de système d'exploitation ni de processeur conçu sur son sol. Galileo, le GPS européen, est encore lancé en partie sur des fusées américaines. (Source : ARCOM, Rapport souveraineté numérique 2024)</p>
+      </div>
+      <div class="volet-block">
+        <h3>Ce que nous proposons</h3>
+        <ul class="mesures-list">
+          <li>Plafond à 20% du capital pour tout actionnaire d'une chaîne nationale, clause anti-contournement</li>
+          <li>Fonds de revalorisation salariale des journalistes, financé par une taxe sur la publicité</li>
+          <li>Plan Calcul 2.0, souveraineté numérique française, processeurs et logiciels sur sol français</li>
+          <li>Galileo exclusivement via Ariane 6, zéro dépendance à SpaceX</li>
+          <li>Neutralité active dans les conflits, la France ne choisit pas de camp, elle propose des solutions</li>
+          <li>Réforme de l'UE en deux temps, négociation puis, si blocage, référendum sur l'appartenance</li>
+        </ul>
+      </div>
+      <div class="volet-block chiffre-block">
+        <h3>Ce que ça change</h3>
+        <p>Grille salariale journalistes, écart actuel entre stagiaire et rédacteur en chef :</p>
+        <p class="chiffre-grand">1 800→4 800€</p>
+        <p>nets. Une information de qualité suppose des journalistes correctement rémunérés et indépendants de leurs actionnaires.</p>
+      </div>
+    </div>
+  </section>
+  <div class="volet-divider"></div>
+
+  <!-- 11 DROM-COM -->
+  <section class="volet" id="drom-com">
+    <div class="volet-header">
+      <div class="volet-number">11</div>
+      <div class="volet-title-block">
+        <span class="volet-tag">Territoires</span>
+        <h2>DROM-COM et Outre-mer</h2>
+      </div>
+    </div>
+    <div class="volet-body">
+      <div class="volet-block">
+        <h3>Le constat</h3>
+        <p>77,3% de la population de Mayotte vit sous le seuil de pauvreté. Les essais nucléaires en Polynésie (1966-1996) ont affecté 13 000 personnes, 9 victimes sur 10 n'ont pas été indemnisées. Les prix en Martinique et Guadeloupe sont supérieurs de 14 à 16% à la métropole pour des revenus inférieurs. (Source : INSEE, CIVEN 2024)</p>
+      </div>
+      <div class="volet-block">
+        <h3>Ce que nous proposons</h3>
+        <ul class="mesures-list">
+          <li>Union douanière interne, réduction de 30% des coûts d'importation sur les produits essentiels</li>
+          <li>Reconstruction de Mayotte, mobilisation nationale, 5% des budgets régionaux hexagonaux sur 3 ans</li>
+          <li>Mayotte comme hub technologique de l'Océan Indien, fonderie franco-chinoise, Plan Calcul 2.0</li>
+          <li>Indemnisation automatique des victimes des essais nucléaires en Polynésie, critère des becquerels, pas des millisieverts</li>
+          <li>Chlordécone, indemnisation universelle en Martinique et Guadeloupe, recherche transgénérationnelle</li>
+          <li>Fonds ZEE Polynésie, 30% des revenus de la zone économique exclusive reversés au territoire</li>
+        </ul>
+      </div>
+      <div class="volet-block chiffre-block">
+        <h3>Ce que ça change</h3>
+        <p>Mobilisation pour Mayotte post-Chido :</p>
+        <p class="chiffre-grand">7,7 Mds€</p>
+        <p>mobilisables contre 3,6 Mds€ de besoins estimés. La reconstruction est financièrement assurée si tous les leviers sont activés simultanément.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<div class="cta-band">
+  <h2>Vous voulez aller plus loin ?</h2>
+  <p>Les 11 volets complets sont disponibles en téléchargement libre sur notre site.</p>
+  <div class="cta-buttons">
+    <a href="index.html#programme" class="btn-rouge">Télécharger le programme complet</a>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfSmssL8abL3g3uirmoHX4OrNekd4l8-WhA9NMdZ-3CcqJ2lg/viewform" target="_blank" class="btn-outline">Rejoindre les LFP</a>
+  </div>
+</div>
+
+<footer>
+  Les Fraternels Phrygiens &bull; Association politique loi 1901 &bull; La Devise, Charente-Maritime
+</footer>
+
+<script>
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+</script>
+
+<!-- BOUTON NAV FLOTTANT -->
+<div id="nav-flottant" style="position:fixed;bottom:24px;right:24px;z-index:999;">
+  <div id="menu-flottant" style="display:none;flex-direction:column;gap:8px;margin-bottom:12px;align-items:flex-end;">
+    <a href="index.html" style="background:#1a2744;color:white;text-decoration:none;font-family:'Source Serif 4',serif;font-size:0.85rem;padding:0.6rem 1.1rem;box-shadow:0 4px 16px rgba(0,0,0,0.25);white-space:nowrap;border:1px solid rgba(201,169,110,0.3);" onmouseover="this.style.background='#2e4a7a'" onmouseout="this.style.background='#1a2744'">Accueil</a>
+    <a href="qui-sommes-nous.html" style="background:#1a2744;color:white;text-decoration:none;font-family:'Source Serif 4',serif;font-size:0.85rem;padding:0.6rem 1.1rem;box-shadow:0 4px 16px rgba(0,0,0,0.25);white-space:nowrap;border:1px solid rgba(201,169,110,0.3);" onmouseover="this.style.background='#2e4a7a'" onmouseout="this.style.background='#1a2744'">Qui sommes-nous</a>
+    <a href="programme-resume.html" style="background:#1a2744;color:white;text-decoration:none;font-family:'Source Serif 4',serif;font-size:0.85rem;padding:0.6rem 1.1rem;box-shadow:0 4px 16px rgba(0,0,0,0.25);white-space:nowrap;border:1px solid rgba(201,169,110,0.3);" onmouseover="this.style.background='#2e4a7a'" onmouseout="this.style.background='#1a2744'">Le programme</a>
+    <a href="actualites.html" style="background:#1a2744;color:white;text-decoration:none;font-family:'Source Serif 4',serif;font-size:0.85rem;padding:0.6rem 1.1rem;box-shadow:0 4px 16px rgba(0,0,0,0.25);white-space:nowrap;border:1px solid rgba(201,169,110,0.3);" onmouseover="this.style.background='#2e4a7a'" onmouseout="this.style.background='#1a2744'">Actualités</a>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfSmssL8abL3g3uirmoHX4OrNekd4l8-WhA9NMdZ-3CcqJ2lg/viewform" target="_blank" style="background:#c0392b;color:white;text-decoration:none;font-family:'Source Serif 4',serif;font-size:0.85rem;padding:0.6rem 1.1rem;box-shadow:0 4px 16px rgba(0,0,0,0.25);white-space:nowrap;" onmouseover="this.style.background='#a93226'" onmouseout="this.style.background='#c0392b'">Nous rejoindre</a>
+  </div>
+  <button id="btn-nav-flottant" onclick="toggleNavFlottant()" style="width:56px;height:56px;border-radius:50%;background:#c0392b;border:none;cursor:pointer;box-shadow:0 4px 20px rgba(0,0,0,0.3);display:flex;align-items:center;justify-content:center;transition:transform 0.25s, background 0.2s;" onmouseover="this.style.background='#a93226'" onmouseout="this.style.background='#c0392b'">
+    <svg id="icone-nav" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.4" stroke-linecap="round">
+      <line x1="4" y1="7" x2="20" y2="7"></line>
+      <line x1="4" y1="12" x2="20" y2="12"></line>
+      <line x1="4" y1="17" x2="20" y2="17"></line>
+    </svg>
+  </button>
+</div>
+
+<script>
+function toggleNavFlottant() {
+  const menu = document.getElementById('menu-flottant');
+  const btn = document.getElementById('btn-nav-flottant');
+  const ouvert = menu.style.display === 'flex';
+  menu.style.display = ouvert ? 'none' : 'flex';
+  btn.style.transform = ouvert ? 'rotate(0deg)' : 'rotate(90deg)';
+}
+document.addEventListener('click', function(e) {
+  const nav = document.getElementById('nav-flottant');
+  if (nav && !nav.contains(e.target)) {
+    document.getElementById('menu-flottant').style.display = 'none';
+    document.getElementById('btn-nav-flottant').style.transform = 'rotate(0deg)';
+  }
+});
+</script>
+
+</body>
+</html>
